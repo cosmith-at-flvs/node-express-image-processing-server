@@ -9,7 +9,7 @@ const filename = (request, file, callback) => {
 };
 
 const storage = multer.diskStorage({
-    destination: 'api/uploads',
+    destination: 'api/uploads/',
     filename,
 });
 
@@ -28,6 +28,8 @@ const upload = multer({
     fileFilter,
     storage
 })
+
+app.use(express.static(path.resolve(__dirname, 'uploads')));
 
 router.post('/upload', upload.single('photo'), (request, response) => {
     if(request.fileValidationError) return response.status(400).json({error: request.fileValidationError});
