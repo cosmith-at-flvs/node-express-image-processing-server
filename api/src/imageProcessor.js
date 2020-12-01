@@ -1,5 +1,4 @@
-const { path, resolve } = require('path');
-const { reject } = require('ramda');
+const path = require('path');
 const { Worker, isMainThread} = require('worker_threads');
 
 const pathToResizeWorker = path.resolve(__dirname, 'resizeWorker.js');
