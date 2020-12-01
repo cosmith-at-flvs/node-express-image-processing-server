@@ -1,6 +1,6 @@
 const {Router, response} = require('express');
 const multer = require('multer');
-const { request } = require('../app');
+const app = require('../app');
 
 const router = Router();
 
