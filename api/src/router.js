@@ -1,6 +1,5 @@
-const {Router, response} = require('express');
+const {Router} = require('express');
 const multer = require('multer');
-const app = require('../app');
 
 const router = Router();
 
@@ -28,8 +27,6 @@ const upload = multer({
     fileFilter,
     storage
 })
-
-app.use(express.static(path.resolve(__dirname, 'uploads')));
 
 router.post('/upload', upload.single('photo'), (request, response) => {
     if(request.fileValidationError) return response.status(400).json({error: request.fileValidationError});
