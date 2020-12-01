@@ -32,7 +32,7 @@ const imageProcessor = (filename) => {
             resizeWorker.on('message', (message) => {
                 resizeWorkerFinished =true;
                 if(monochromeWorkerFinished = true){
-                    resolve('resizeWorker finished processing')
+                    resolve('monochromeWorker finished processing')
                 }
             })
             resizeWorker.on('error', (error) => {
@@ -46,7 +46,7 @@ const imageProcessor = (filename) => {
             monochromeWorker.on('message', (message) => {
                 monochromeWorkerFinished = true;
                 if(resizeWorkerFinished = true) {
-                    resolve('monochromeWorker finished processing');
+                    resolve('resizeWorker finished processing');
 
                 }
             })
